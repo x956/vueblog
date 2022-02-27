@@ -17,4 +17,12 @@ public class Result {
 
     private Object data;
 
+    public static Result succ(int code,String msg,Object data){
+        Result r = new Result();
+        r.setCode(code);
+        r.setMsg(msg);
+        r.setData(data);
+        return r;
+    }
+
 }
