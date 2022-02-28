@@ -8,6 +8,8 @@ import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -26,6 +28,8 @@ public class AccountRealm extends AuthorizingRealm {
 
     @Autowired
     private UserService userService;
+
+    private final static Logger logger = LoggerFactory.getLogger(AccountRealm.class);
 
     @Override
     public boolean supports(AuthenticationToken token) {
@@ -51,6 +55,8 @@ public class AccountRealm extends AuthorizingRealm {
             throw new UnknownAccountException("账户不存在");
         }
 
+        logger.info("用户状态：{}",user.getStatus());
+        System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
         if(user.getStatus()==-1){
             throw new LockedAccountException("账户已经被锁定");
         }

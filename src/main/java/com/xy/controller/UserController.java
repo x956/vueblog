@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 /**
  * <p>
- *  前端控制器
+ *  user控制器
  * </p>
  *
  * @author XY
