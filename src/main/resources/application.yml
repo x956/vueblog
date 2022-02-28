@@ -12,5 +12,18 @@ mybatis-plus:
     db-config:
       table-prefix: m_
 
+shiro-redis:
+  enabled: true
+  redis-manager:
+    host: 127.0.0.1:6379
+
 server:
   port: 80
+
+
+markerhub:
+  jwt:
+    secret: f4e2e52034348f86b67cde581c0f9eb5
+    expire: 604800
+    header: Authorization
+
