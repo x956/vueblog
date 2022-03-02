@@ -42,7 +42,7 @@ public class BlogController {
         return Result.succ(pageDate);
     }
 
-    @GetMapping("/blogs/{id}")
+    @GetMapping("/blog/{id}")
     public Result detial(@PathVariable(name = "id") Long id){
 
         Blog blog = blogService.getById(id);
@@ -52,7 +52,7 @@ public class BlogController {
     }
 
     @RequiresAuthentication
-    @PostMapping("/blogs/edit")
+    @PostMapping("/blog/edit")
     public Result edit(@Validated @RequestBody Blog blog){
 
         //blog中传来了用户编辑的信息
